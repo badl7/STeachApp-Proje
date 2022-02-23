@@ -1,6 +1,3 @@
-from enum import unique
-from tabnanny import verbose
-from tkinter import CASCADE
 from django.db import models
 from autoslug import AutoSlugField
 from ozelders.models import KategoriModel
