@@ -1,3 +1,4 @@
 from django.contrib import admin
+from ozelders.models import KategoriModel
 
-# Register your models here.
+admin.site.register(KategoriModel)
