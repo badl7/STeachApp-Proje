@@ -5,5 +5,5 @@ def homePage(request):
     context = {
         "isim" : "Betül Gürbüz"
     }
-    return render(request, 'pages/anasayfa.html', context= context)
+    return render(request,'pages/anasayfa.html', context={})
 
