@@ -13,21 +13,25 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>
-        {% block title %}{% endblock %}
+        {% block title %}
+        
+        {% endblock %}
     </title>
 </head>
 
 <body>
-    {% include 'components/navbar.html' %}
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-sm-9">
-                {% block content %}{% endblock %}
-            </div>
-            {% include 'components/sidebar.html' %}
+
+    {% include 'includes/navbar.html' %}
+    <main>
+        <div class="container py-5">
+            {% block content %}
+            
+            {% endblock %}
+            {% include 'includes/fooster.html' %}
         </div>
-        {% include 'components/fooster.html' %}
-    </div>
+    </main>
+
+
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="{% static 'js/bootstrap.bundle.min.js'%}"
