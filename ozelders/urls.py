@@ -1,6 +1,10 @@
-from django.urls import path
+from django.urls import path,include
+from ozelders.views import iletisim
+from ozelders.views.home import homePage
 
-from ozelders.views import homePage, iletisim
+
+
+
 
 
 
