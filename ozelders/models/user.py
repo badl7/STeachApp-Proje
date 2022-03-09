@@ -1,3 +1,4 @@
+"""
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
@@ -18,9 +19,9 @@ class Student(models.Model):
     phone = models.IntegerField()
 #    student_profile_pic = models.ImageField(upload_to="classroom/student_profile_pic",blank=True)
 
-    """def get_absolute_url(self):
+    def get_absolute_url(self):
         return reverse('classroom:student_detail',kwargs={'pk':self.pk})
-    """
+    
     def __str__(self):
         return self.name
 
@@ -35,9 +36,11 @@ class Teacher(models.Model):
     phone = models.IntegerField()
 #    teacher_profile_pic = models.ImageField(upload_to="classroom/teacher_profile_pic",blank=True)
     class_students = models.ManyToManyField(Student,through="StudentsInClass")
-    """
+    
     def get_absolute_url(self):
         return reverse('classroom:teacher_detail',kwargs={'pk':self.pk})
-    """
+    
     def __str__(self):
         return self.name
+    
+"""
