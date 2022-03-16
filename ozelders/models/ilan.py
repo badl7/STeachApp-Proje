@@ -1,10 +1,11 @@
 from django.db import models
 from autoslug import AutoSlugField
 from ozelders.models import KategoriModel
+from account.models import Student
 
 
 class IlanlarModel(models.Model):
-    ilan_sahibi = models.ForeignKey("auth.User", related_name="ilanlar", on_delete=models.CASCADE, verbose_name="İlanı Veren")
+    ilan_sahibi = models.ForeignKey(Student, related_name="ilanlar", on_delete=models.CASCADE, verbose_name="İlanı Veren")
     ilan_baslik = models.CharField(max_length=50,verbose_name="İlan Başlığı")
     konum = models.CharField(max_length=50,verbose_name="Konum")
     okulu = models.CharField(max_length=150,verbose_name="Eğitim Seviyesi")
