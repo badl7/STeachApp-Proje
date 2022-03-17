@@ -1,4 +1,3 @@
-from enum import unique
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
@@ -28,6 +27,9 @@ class Student(models.Model):
         return self.name
 
     class Meta:
+        db_table = 'studentuser'
+        verbose_name = 'Student'
+        verbose_name_plural = 'Students'
         ordering = ['olus_tarih']
 
 class Teacher(models.Model):
@@ -46,4 +48,21 @@ class Teacher(models.Model):
     
     def __str__(self):
         return self.name
+
+    class Meta:
+        db_table = 'teacheruser'
+        verbose_name = 'Teacher'
+        verbose_name_plural = 'Teachers'
+        ordering = ['olus_tarih']
     
+
+
+class StudentsInClass(models.Model):
+    teacher = models.ForeignKey(Teacher,related_name="class_teacher",on_delete=models.CASCADE)
+    student = models.ForeignKey(Student,related_name="user_student_name",on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.student.name
+
+    class Meta:
+        unique_together = ('teacher','student')

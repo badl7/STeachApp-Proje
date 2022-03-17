@@ -10,7 +10,7 @@ from ozelders.views.home import homePage
 
 
 urlpatterns = [
-    path('home', homePage),
+    path('', homePage),
     path('iletisim', iletisim),
     path('profil', profil),
 ]

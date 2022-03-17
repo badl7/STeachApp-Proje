@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-
+{% load static %}
 {% block title %}
 
 {% endblock %}
@@ -35,7 +35,7 @@
 -->
 
 <div class="card" style="width: 9rem;" >
-  <img src="..." class="card-img-top" alt="...">
+  <img src="{% static 'media/avatar' %}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Kullanıcı Adı</h5>
     <p class="card-text">statüsü</p>
