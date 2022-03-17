@@ -1,5 +1,6 @@
 from django.db import models
 from autoslug import AutoSlugField
+from account.models import Teacher
 
 class KategoriModel(models.Model):
     ders = models.CharField(max_length=150, blank=False, null=False)

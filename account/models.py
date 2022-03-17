@@ -33,7 +33,7 @@ class Student(models.Model):
         ordering = ['olus_tarih']
 
 class Teacher(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,related_name='Teacher')
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,primary_key=True,related_name='Teacher')
     name = models.CharField(max_length=250)
     subject_name = models.CharField(max_length=250)
     email = models.EmailField(max_length=254)
@@ -58,7 +58,7 @@ class Teacher(models.Model):
 
 
 class StudentsInClass(models.Model):
-    teacher = models.ForeignKey(Teacher,related_name="class_teacher",on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher,related_name="s_teacher",on_delete=models.CASCADE)
     student = models.ForeignKey(Student,related_name="user_student_name",on_delete=models.CASCADE)
 
     def __str__(self):
@@ -66,3 +66,32 @@ class StudentsInClass(models.Model):
 
     class Meta:
         unique_together = ('teacher','student')
+"""
+class TeacherMarks(models.Model):
+    teacher = models.ForeignKey(Teacher,related_name='marks',on_delete=models.CASCADE)
+    student = models.ForeignKey(Student,related_name="given_marks",on_delete=models.CASCADE)
+    subject_name = models.CharField(max_length=250)
+    marks_obtained = models.IntegerField()
+    maximum_marks = models.IntegerField()
+
+    def __str__(self):
+        return self.subject_name
+
+class MessageToTeacher(models.Model):
+    student = models.ForeignKey(Student,related_name='student',on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher,related_name='messages',on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now=True)
+    message = models.TextField()
+    message_html = models.TextField(editable=False)
+
+    def __str__(self):
+        return self.message
+
+    def save(self,*args,**kwargs):
+        self.message_html = misaka.html(self.message)
+        super().save(*args,**kwargs)
+
+    class Meta:
+        ordering = ['-created_at']
+        unique_together = ['student','message']
+"""
