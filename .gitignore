@@ -2,5 +2,8 @@ __pycache__
 db.sqlite3
 .vscode
 media
+avatar
+student_profile_pic
+teacher_profile_pic
 
 
