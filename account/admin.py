@@ -4,11 +4,14 @@ from account.models import User,Student,Teacher,StudentsInClass
 
 # Register your models here.
 
-
 @admin.register(User)
 class UsersAdmin(UserAdmin):
     list_display = ["username","is_student","is_teacher"]
-    
+    fieldsets = UserAdmin.fieldsets + (
+        (('Permissions'), {
+            'fields': ('is_student', 'is_teacher'),
+        }),
+    )
 
 @admin.register(Student)
 class StudentUserAdmin(admin.ModelAdmin):
