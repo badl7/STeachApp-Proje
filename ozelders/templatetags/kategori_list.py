@@ -9,3 +9,5 @@ def kategori_list():
     kategoriler = KategoriModel.objects.all()
     return kategoriler
 
+
+

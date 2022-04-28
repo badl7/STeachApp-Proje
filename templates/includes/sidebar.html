@@ -1,5 +1,4 @@
 {% load kategori_list %}
-{% load kategori %}
 {% kategori_list as kategoriler %}
 
 
@@ -12,7 +11,7 @@
         <ul class="list-group list-group-flush">
             {% for kategori in kategoriler %}
             <li class="list-group-item">
-                <a href="{% url 'kategori' kategoriSlug=kategori.slug %}">{{ kategori.ders }}</a>
+                <a href="#">{{ kategori.ders }}</a>
             </li>
             {% endfor %}
         </ul>
