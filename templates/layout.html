@@ -30,6 +30,17 @@
                 </div>
                 
             </div>
+        </div>
+        <div class="container mt-3">
+            <div class="row">
+              <div class="col-auto me-auto">
+                {% block profils %}{% endblock %}
+              </div>
+              <div class="col-auto">
+                {% block kategoris %}{% endblock %}    
+              </div>
+            </div>
+        </div>
     </main>
     
     {% include 'includes/footer.html' %}

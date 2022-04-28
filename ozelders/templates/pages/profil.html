@@ -5,8 +5,13 @@
 Profil
 {% endblock %}
 
-{% block content %}
-{% include 'includes/sidebar.html' %}
+{% block profils %}
+
+
+
+
+
+
 <!--
 <ul class="nav flex-column">
     <li class="nav-item">
@@ -35,58 +40,64 @@ Profil
     </li>
 </ul>
 -->
-
-
-<div class="card" style="width: 11rem; color:rgb(55, 64, 71)">
-  <img src="media/avatar/teacher_profile_pic/kadınlar.PNG" class="card-img-top" height="200" style="vertical-align:bottom">
-  <div class="card-body">
-    <h5 class="card-title">Kullanıcı Adı</h5>
-    <p class="card-text">statüsü</p>
-
+<div class="col order-first">
+  <div class="card" style="width: 11rem; color:rgb(55, 64, 71)">
+    <img src="media/avatar/teacher_profile_pic/kadınlar.PNG" class="card-img-top" height="200" style="vertical-align:bottom">
+    <div class="card-body">
+      <h5 class="card-title">Kullanıcı Adı</h5>
+      <p class="card-text">statüsü</p>
+  
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+          <label class="btn btn-outline-danger" for="btnradio1">Profil Düzenle</label>
+        </div>
+      </li>
+  
+      <li class="list-group-item">
+        <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
+          <label class="btn btn-outline-danger" for="btnradio2">İlanlarım</label>
+        </div>
+      </li>
+  
+      <li class="list-group-item">
+        <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
+          <label class="btn btn-outline-danger" for="btnradio3">İlan Ver</label>
+        </div>
+      </li>
+  
+      <li class="list-group-item">
+        <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked>
+          <label class="btn btn-outline-danger" for="btnradio4">Başvurular</label>
+        </div>
+      </li>
+  
+      <li class="list-group-item">
+        <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" checked>
+          <label class="btn btn-outline-danger" for="btnradio5">Başvuru Yap</label>
+        </div>
+      </li>
+  
+      <li class="list-group-item">
+        <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" checked>
+          <label class="btn btn-outline-dark" for="btnradio6">Çıkış</label>
+        </div>
+      </li>
+    </ul>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-        <label class="btn btn-outline-danger" for="btnradio1">Profil Düzenle</label>
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
-        <label class="btn btn-outline-danger" for="btnradio2">İlanlarım</label>
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
-        <label class="btn btn-outline-danger" for="btnradio3">İlan Ver</label>
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked>
-        <label class="btn btn-outline-danger" for="btnradio4">Başvurular</label>
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" checked>
-        <label class="btn btn-outline-danger" for="btnradio5">Başvuru Yap</label>
-      </div>
-    </li>
-
-    <li class="list-group-item">
-      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" checked>
-        <label class="btn btn-outline-dark" for="btnradio6">Çıkış</label>
-      </div>
-    </li>
-  </ul>
 </div>
 
+
 {% endblock %}
+
+{% block kategoris %}
+{% include 'includes/sidebar.html' %}
+{% endblock %}
+
