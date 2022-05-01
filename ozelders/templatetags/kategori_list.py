@@ -1,4 +1,3 @@
-
 from django import template
 from ozelders.models import KategoriModel
 

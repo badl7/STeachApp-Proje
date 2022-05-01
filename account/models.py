@@ -15,7 +15,7 @@ class Student(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,related_name='Student')
     name=models.CharField(max_length=250)
     email = models.EmailField(max_length=254)
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=25)
     slug = AutoSlugField(populate_from = 'user', unique=True)
     student_profile_pic = models.ImageField(upload_to="avatar/student_profile_pic",blank=True, null=True)
     olus_tarih = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturulma Tarihi")
