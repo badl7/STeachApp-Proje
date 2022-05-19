@@ -5,14 +5,14 @@
 
 <div class="col-md-6 float-md-end mb-3 ms-md-3">
 
-    <div class="card" style="width: 10rem;">
+    <div class="card text-white bg-dark mb-3" style="width: 10rem;">
         <div class="card-header">
             Kategoriler
         </div>
         <ul class="list-group list-group-flush">
             {% for kategori in kategoriler %}
             <li class="list-group-item">
-                <a href="#">{{ kategori.ders }}</a>
+                <a href="#" style="color: darkgoldenrod;">{{ kategori.ders }}</a>
             </li>
             {% endfor %}
         </ul>
