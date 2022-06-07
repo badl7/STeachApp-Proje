@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% load account/models %}
 
 {% block title %}
 Profil
@@ -40,12 +41,24 @@ Profil
     </li>
 </ul>
 -->
+
+{% if request.user.is_authenticated %}
+  
+  
 <div class="col order-first">
   <div class="card" style="width: 11rem; color:rgb(55, 64, 71)">
     <img src="media/avatar/teacher_profile_pic/kadınlar.PNG" class="card-img-top" height="200" style="vertical-align:bottom">
     <div class="card-body">
-      <h5 class="card-title">Kullanıcı Adı</h5>
-      <p class="card-text">statüsü</p>
+      <h5 class="card-title">{{request.user}}</h5>
+      
+      {% if request.user.is_Student %}
+
+        <p class="card-text">Öğrenci</p>
+      {% else %}
+      <p class="card-text">Eğitmen</p>
+      {% endif %}
+        
+      
   
     </div>
     <ul class="list-group list-group-flush">
@@ -93,7 +106,12 @@ Profil
     </ul>
   </div>
 </div>
+{% else %}
 
+<div class="alert alert-danger" role="alert">
+  Henüz Giriş yapılmadı!
+</div>
+{% endif %}
 
 {% endblock %}
 
