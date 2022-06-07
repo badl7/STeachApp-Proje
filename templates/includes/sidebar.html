@@ -12,7 +12,7 @@
         <ul class="list-group list-group-flush">
             {% for kategori in kategoriler %}
             <li class="list-group-item">
-                <a href="#" style="color: darkgoldenrod;">{{ kategori.ders }}</a>
+                <a href="{% url 'kategori' kategoriSlug=kategori.slug %}" style="color: darkgoldenrod;">{{ kategori.ders }}</a>
             </li>
             {% endfor %}
         </ul>

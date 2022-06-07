@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% load static %}
-{% load account/models %}
+
 
 {% block title %}
 Profil
@@ -43,23 +43,21 @@ Profil
 -->
 
 {% if request.user.is_authenticated %}
-  
-  
+
+
 <div class="col order-first">
   <div class="card" style="width: 11rem; color:rgb(55, 64, 71)">
-    <img src="media/avatar/teacher_profile_pic/kadınlar.PNG" class="card-img-top" height="200" style="vertical-align:bottom">
+    <img src="media/avatar/teacher_profile_pic/kadınlar.PNG" class="card-img-top" height="200"
+      style="vertical-align:bottom">
     <div class="card-body">
       <h5 class="card-title">{{request.user}}</h5>
-      
-      {% if request.user.is_Student %}
 
-        <p class="card-text">Öğrenci</p>
-      {% else %}
-      <p class="card-text">Eğitmen</p>
-      {% endif %}
-        
-      
-  
+
+      <p class="card-text">statü</p>
+
+
+
+
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
@@ -68,35 +66,35 @@ Profil
           <label class="btn btn-outline-danger" for="btnradio1">Profil Düzenle</label>
         </div>
       </li>
-  
+
       <li class="list-group-item">
         <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
           <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
           <label class="btn btn-outline-danger" for="btnradio2">İlanlarım</label>
         </div>
       </li>
-  
+
       <li class="list-group-item">
         <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
           <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
           <label class="btn btn-outline-danger" for="btnradio3">İlan Ver</label>
         </div>
       </li>
-  
+
       <li class="list-group-item">
         <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
           <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked>
           <label class="btn btn-outline-danger" for="btnradio4">Başvurular</label>
         </div>
       </li>
-  
+
       <li class="list-group-item">
         <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
           <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" checked>
           <label class="btn btn-outline-danger" for="btnradio5">Başvuru Yap</label>
         </div>
       </li>
-  
+
       <li class="list-group-item">
         <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
           <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" checked>
@@ -118,4 +116,3 @@ Profil
 {% block kategoris %}
 {% include 'includes/sidebar.html' %}
 {% endblock %}
-
