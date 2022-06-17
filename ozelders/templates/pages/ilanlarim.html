@@ -74,5 +74,53 @@
 {% endblock %}
 
 {% block content %}
-data
+{% for ilan in ilanlar %}
+<div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="media/statu/ilan/atina_okulu.jpg" class="card-img-top" height="200" style="vertical-align:bottom">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ ilan.ilan_baslik}}</h5>
+          <p class="card-title" href=""><small class="text-muted">{{ ilan.ilan_sahibi}}</small></p>
+          <p class="card-text">{{ ilan.icerik|truncatechars_html:100 }},{{ ilan.fiyat }}₺ </p>
+          <p class="card-text"><small class="text-muted">{{ ilan.konum }}, {{ ilan.olus_tarih }} ; {{ ilan.olus_tarih|timesince }} önce paylaşıldı.</small></p>
+          <p class="card-text"><small class="text-muted"></small></p>
+          <a href="#" class="btn btn-danger">Eğitmen Başvurusu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% empty %}
+<p>Hiç İlan Bulunamadı..</p>
+{% endfor %}
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-end">
+    {% if ilanlar.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?sayfa={{ilanlar.previous_page_number}}" tabindex="-1" aria-disabled="true">Önceki</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+      </li>
+    {% endif %}
+   
+    <li class="page-item"><a class="page-link" href="#">{{ilanlar.number}}</a></li>
+    
+    {% if ilanlar.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?sayfa={{ilanlar.next_page_number}}">{{ ilanlar.next_page_number}}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?sayfa={{ilanlar.paginator.num_pages}}">Son</a>
+      </li>
+    {%endif%}
+    
+  </ul>
+</nav>
+
 {% endblock %}
