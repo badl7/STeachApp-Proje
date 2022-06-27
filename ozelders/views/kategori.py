@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from ozelders.models import IlanlarModel, KategoriModel
+from ozelders.models import KategoriModel
 from django.core.paginator import Paginator
 
 

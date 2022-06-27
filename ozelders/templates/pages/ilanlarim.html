@@ -1,100 +1,42 @@
 {% extends 'layout.html' %}
 {% load static %}
 
-
 {% block title %}
 İlanlarım
 {% endblock %}
 
-{% block profils %}
-<div class="col order-first">
-    <div class="card" style="width: 11rem; color:rgb(55, 64, 71)">
-      <img src="media/avatar/teacher_profile_pic/kadınlar.PNG" class="card-img-top" height="200"
-        style="vertical-align:bottom">
-      <div class="card-body">
-        <h5 class="card-title">{{request.user}}</h5>
-  
-  
-        <p class="card-text">statü</p>
-  
-  
-  
-  
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-            <label class="btn btn-outline-danger" for="btnradio1">Profil Düzenle</label>
-          </div>
-        </li>
-  
-        <li class="list-group-item">
-          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
-            <label class="btn btn-outline-danger" for="btnradio2">İlanlarım</label>
-          </div>
-        </li>
-  
-        <li class="list-group-item">
-          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
-            <label class="btn btn-outline-danger" for="btnradio3">İlan Ver</label>
-          </div>
-        </li>
-  
-        <li class="list-group-item">
-          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked>
-            <label class="btn btn-outline-danger" for="btnradio4">Başvurular</label>
-          </div>
-        </li>
-  
-        <li class="list-group-item">
-          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" checked>
-            <label class="btn btn-outline-danger" for="btnradio5">Başvuru Yap</label>
-          </div>
-        </li>
-  
-        <li class="list-group-item">
-          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 9rem;">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" checked>
-            <label class="btn btn-outline-dark" for="btnradio6">Çıkış</label>
-          </div>
-        </li>
-      </ul>
-    </div>
-</div>
-
-{% endblock %}
-
-{% block kategoris %}
-{% include 'includes/sidebar.html' %}
-{% endblock %}
-
 {% block content %}
-{% for ilan in ilanlar %}
-<div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="media/statu/ilan/atina_okulu.jpg" class="card-img-top" height="200" style="vertical-align:bottom">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">{{ ilan.ilan_baslik}}</h5>
-          <p class="card-title" href=""><small class="text-muted">{{ ilan.ilan_sahibi}}</small></p>
-          <p class="card-text">{{ ilan.icerik|truncatechars_html:100 }},{{ ilan.fiyat }}₺ </p>
-          <p class="card-text"><small class="text-muted">{{ ilan.konum }}, {{ ilan.olus_tarih }} ; {{ ilan.olus_tarih|timesince }} önce paylaşıldı.</small></p>
-          <p class="card-text"><small class="text-muted"></small></p>
-          <a href="#" class="btn btn-danger">Eğitmen Başvurusu</a>
-        </div>
-      </div>
-    </div>
-  </div>
-{% empty %}
-<p>Hiç İlan Bulunamadı..</p>
-{% endfor %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Güncellenme Tarihi</th>
+      <th scope="col">Aksiyonlar</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for ilan in ilanlar %}
+          <tr>
+              <th scope="row">{{ ilan.id }}</th>
+              <td>{{ ilan.ilan_baslik }}</td>
+              <td>{{ ilan.olus_tarih }}</td>
+              <td>
+                <p>
+                  <a class="btn btn-primary" href="#">Düzenle</a>
+                  <a class="btn btn-danger" href="#">Sil</a>
+                </p>
+              </td>
+          </tr>
+          {% empty %}
+            <div class="alert alert-warning" role="alert">
+              <p>Hiç İlan Bulunamadı.</p>
+            </div>
+          {% endfor %}
+  </tbody>
+</table>
+
 
 
 <nav aria-label="Page navigation example">
@@ -104,12 +46,12 @@
         <a class="page-link" href="?sayfa={{ilanlar.previous_page_number}}" tabindex="-1" aria-disabled="true">Önceki</a>
       </li>
     {% else %}
-    <p>Hiç İlan Bulunamadı..</p>
-    
-      
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+      </li>
     {% endif %}
    
-    <li class="page-item"><a class="page-link" href="#">{{ilanlar.number}}</a></li>
+    
     
     {% if ilanlar.has_next %}
       <li class="page-item">
