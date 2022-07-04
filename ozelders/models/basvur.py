@@ -1,9 +1,9 @@
 from django.db import models
 from ozelders.models import IlanlarModel
-from account.models import Teacher
+from account.models import User
 
 class BasvurModel(models.Model):
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE,verbose_name="Eğitmen",related_name="basvuru")
+    teacher = models.ForeignKey(User, on_delete=models.CASCADE,verbose_name="Eğitmen",related_name="basvuru")
     ilan = models.ForeignKey(IlanlarModel, on_delete=models.CASCADE, related_name="basvurular")
     ilan_basvur = models.TextField(verbose_name="Tanıtım Yazısı")
     basvur_tarihi = models.DateTimeField(auto_now_add=True, verbose_name="Başvuru Tarihi")

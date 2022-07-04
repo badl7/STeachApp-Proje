@@ -33,7 +33,7 @@ class Student(models.Model):
         ordering = ['olus_tarih']
 
 class Teacher(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,primary_key=True,related_name='Teacher')
+    user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,related_name='Teacher')
     name = models.CharField(max_length=250)
     subject_name = models.CharField(max_length=250)
     email = models.EmailField(max_length=254)

@@ -10,7 +10,7 @@ class IlanlarModel(models.Model):
     konum = models.CharField(max_length=50,verbose_name="Konum")
     okulu = models.CharField(max_length=150,verbose_name="Eğitim Seviyesi")
     icerik = models.TextField(verbose_name="Detaylar")
-    fiyat = models.IntegerField(verbose_name="Ücret")
+    fiyat = models.IntegerField(verbose_name="Ücret Aralığı")
     olus_tarih = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturulma Tarihi")
     slug = AutoSlugField(populate_from="ilan_baslik", unique=True)
     kategoriler = models.ManyToManyField(KategoriModel, related_name = "ilan")
